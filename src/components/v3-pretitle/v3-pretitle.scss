@@ -1,0 +1,11 @@
+.v3-pretitle {
+  $self: &;
+
+  font-size: 14px;
+  line-height: 28px;
+  font-weight: bold;
+  color: $pre;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  margin-bottom: 21px;
+}

@@ -4,17 +4,35 @@ include ../node_modules/bempug/index
 //- blocks imports
 include ./blocks/head/head
 include ./blocks/header/header
+include ./blocks/v3-header-menu/v3-header-menu
 include ./blocks/footer/footer
 include ./blocks/section/section
+include ./blocks/v3-top-slider/v3-top-slider
+include ./blocks/v3-mission/v3-mission
+include ./blocks/v3-standards/v3-standards
+include ./components/v3-pretitle/v3-pretitle
+include ./components/v3-title/v3-title
+include ./components/v3-description/v3-description
 
 doctype html
 html
   +head({
-    title: 'Главная'
+      title: 'Главная'
   })
   body.main
-    +header({})
-    main.content
-      +section({})
+    +header
+      +v3-header-menu
+      +v3-top-slider
+    +section#v3-mission
+      .container
+        +v3-pretitle Миссия
+        .row
+          .col-lg-4
+            +v3-title Строим иначе
+          .col-lg-8
+            +v3-description Мы строим во всех районах Красноярска и каждый наш проект доказывает - мы меняем облик города и жизнь горожан в лучшую сторону. Независимо от размаха проекта мы везде создаем полноценную жилую среду - современную, комфортную, дружелюбную к человеку. Мы формируем не только внутреннюю, но, самое главное, внешнюю среду обитания и ее основной элемент ​улицу​ со всеми ее составляющими: дорогой, тротуарами, озеленением и малыми архитектурными формами. Мы считаем, что сегодня такой градостроительный подход должен стать основным.
+
+    for elem in [...Array(30).keys()]
+      br
 
     +footer({})

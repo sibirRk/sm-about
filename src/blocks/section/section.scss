@@ -1,12 +1,8 @@
 .section {
   $self: &;
 
-  padding-top: rem(70px);
-  @include container();
-
-  #{$self}__wrapper {
-    //@include col-padding();
+  &#v3-mission {
+    padding-top: 174px;
+    padding-bottom: 340px;
   }
-
-  //- Модификаторы
 }

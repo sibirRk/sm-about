@@ -121,7 +121,7 @@ module.exports = {
             options: {
               plugins: [
                 autoprefixer({
-                  browsers: ['ie >= 9', 'last 8 version']
+                  // browsers: ['ie >= 9', 'last 8 version']
                 })
               ],
               sourceMap: true

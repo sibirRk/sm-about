@@ -1,0 +1,22 @@
+include ../../components/icon/icon
+
+mixin v3-header-menu(bem)
+  +b('v3-header-menu', bem)&attributes(attributes)
+    +e('start')
+      +e('logo-wrapper', {}, 'a')(href='#')
+        +icon({e: '&:logo'}, 'logo')
+      +e('menu-wrapper', {}, 'a')(href="#")
+        +icon({e: '&:menu-icon'}, 'bars')
+        +e('item') Меню
+      +e('menu-items')
+         for item in ['Проекты', 'Бизнес недвижимость', 'Новости', 'Компания']
+          +e('item', {}, 'a')(href="#")= item
+    +e('end')
+      +e('item', {m: 'small.info-disclosure'}, 'a')(href="#") Раскрытие информации
+      +e('item', {}, 'a')(href="#")
+        +icon({e: '&:search'}, 'magnifier')
+      +e('phone-wrapper')
+        +e('phone-link', {}, 'a')(href="tel:#") +7 (391) <span>277 99 01</span>
+        +e('callback', {}, 'a')(href="#")
+          +icon({e: '&:callback-icon'}, 'call-icon')
+          +e('callback-text') перезвоните мне

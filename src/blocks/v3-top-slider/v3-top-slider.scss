@@ -1,0 +1,8 @@
+.v3-top-slider {
+  $self: &;
+
+  width: 100vw;
+  height: 1000px;
+  background-image: url("/images/top-slider/bg.jpg");
+  background-size: cover;
+}
