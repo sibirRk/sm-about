@@ -1,0 +1,13 @@
+include  ../icon/icon
+
+mixin v3-swiper-controls(bem, data)
+  +b('v3-swiper-controls', bem)&attributes(attributes)
+    if data && data.buttons
+      +e('btns')
+        +e('btn-wrapper').prev
+          +icon({e: '&:btn', m: 'prev'}, 'arrow-prev')
+        +e('btn-wrapper').next
+          +icon({e: '&:btn', m: 'prev'}, 'arrow-next')
+    if data && data.pagination
+      +e('pagination')
+        | <span class="current">1</span>/<span class="total">6</span>
