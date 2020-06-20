@@ -8,4 +8,8 @@
   letter-spacing: 0.03em;
   text-transform: uppercase;
   margin-bottom: 21px;
+
+  &#{$self}_color-white {
+    color: $white;
+  }
 }

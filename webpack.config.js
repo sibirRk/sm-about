@@ -98,7 +98,8 @@ module.exports = {
               data: {
                 // JSON data here, see example below
                 // menu: require('./src/data/menu.json'),
-                linkslist: links
+                linkslist: links,
+                standards: require('./src/data/standards.json')
               },
               pretty: true
             }

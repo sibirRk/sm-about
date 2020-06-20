@@ -1,3 +1,140 @@
 .v3-standards {
   $self: &;
+
+  display: flex;
+  width: 100%;
+
+  .swiper-slide {
+    display: flex;
+    width: 100%;
+  }
+
+  #{$self}__video {
+    position: relative;
+    padding: 60px 0px;
+    width: 50%;
+
+    &-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background-color: red;
+      height: 638px;
+      overflow: hidden;
+    }
+
+    &-btn {
+      position: absolute;
+      bottom: 35px;
+      right: 46px;
+      width: 98px;
+      height: 98px;
+      color: $white;
+      cursor: pointer;
+    }
+  }
+
+  #{$self}__info {
+    padding-top: 115px;
+    padding-left: 300px;
+    flex: 1;
+    margin-left: -180px;
+    height: 400px;
+    background-color: #4BA2D4;
+    min-height: 762px;
+
+    &_bg {
+      &-default {
+        background-color: #4BA2D4;
+      }
+
+      &-orange {
+        background-color: $orange;
+      }
+
+      &-apple {
+        background-color: $apple;
+      }
+
+      &-san-marino {
+        background-color: $san-marino;
+      }
+
+      &-mandy {
+        background-color: $mandy;
+      }
+
+      &-oslo-gray {
+        background-color: $oslo-gray;
+      }
+    }
+
+    &-wrapper {
+      max-width: 460px;
+    }
+  }
+
+  #{$self}__more-btn {
+    width: 37px;
+    height: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba($white, 0.2);
+    border-radius: 7.5px;
+    cursor: pointer;
+    margin-bottom: 75px;
+
+    span {
+      color: $white;
+      position: relative;
+      bottom: 25%;
+      pointer-events: none;
+      user-select: none;
+    }
+  }
+
+  #{$self}__v3 {
+    &-pretitle {
+      margin-bottom: 10px;
+    }
+
+    &-title {
+      margin-bottom: 13px;
+    }
+
+    &-description {
+      margin-bottom: 25px;
+
+      &:after {
+        content: '...';
+      }
+
+      &.js_show-more {
+        &:after {
+          display: none;
+        }
+
+        .hidden-part {
+          display: inline;
+        }
+      }
+
+      .hidden-part {
+        display: none;
+      }
+    }
+
+    &-swiper-controls {
+      position: absolute;
+      bottom: 150px;
+      left: calc(50% + 118px);
+      width: 460px;
+      z-index: 2;
+    }
+  }
+
+  .swiper-container {
+    position: relative;
+  }
 }

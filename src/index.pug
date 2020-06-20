@@ -10,6 +10,7 @@ include ./blocks/section/section
 include ./blocks/v3-top-slider/v3-top-slider
 include ./blocks/v3-mission/v3-mission
 include ./blocks/v3-standards/v3-standards
+
 include ./components/v3-pretitle/v3-pretitle
 include ./components/v3-title/v3-title
 include ./components/v3-description/v3-description
@@ -31,6 +32,9 @@ html
             +v3-title Строим иначе
           .col-lg-8
             +v3-description Мы строим во всех районах Красноярска и каждый наш проект доказывает - мы меняем облик города и жизнь горожан в лучшую сторону. Независимо от размаха проекта мы везде создаем полноценную жилую среду - современную, комфортную, дружелюбную к человеку. Мы формируем не только внутреннюю, но, самое главное, внешнюю среду обитания и ее основной элемент ​улицу​ со всеми ее составляющими: дорогой, тротуарами, озеленением и малыми архитектурными формами. Мы считаем, что сегодня такой градостроительный подход должен стать основным.
+
+    +section#v3-standards
+      +v3-standards
 
     for elem in [...Array(30).keys()]
       br

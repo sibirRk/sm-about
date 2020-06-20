@@ -11,6 +11,7 @@
   justify-content: space-between;
   align-items: center;
   transition: background-color 1s;
+  z-index: 9999;
 
   &.js_background {
     background-color: #2d3d52;

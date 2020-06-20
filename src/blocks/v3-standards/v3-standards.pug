@@ -1,2 +1,27 @@
+include ../../components/v3-swiper-controls/v3-swiper-controls
+
 mixin v3-standards(bem)
   +b('v3-standards', bem)&attributes(attributes)
+    .swiper-container
+      .swiper-wrapper
+        for elem in standards
+          .swiper-slide
+            +e('video')
+              +e('video-wrapper')
+                video(id="my-video" class="video-js" controls preload="auto"
+                width="640" height="264" data-setup="{}")
+                  source(src="/video/video.mp4" type="video/mp4")
+                +icon({e: '&:video-btn'}, 'play-btn')
+
+            +e('info')
+              +e('info-wrapper')
+                +v3-pretitle({e: '&', m: 'color-white'}) Стандарты СМ.Сити
+                +v3-title({e:'&', m: 'color-white'})= elem.title
+                +v3-description({e: '&', m: 'color-white'}) !{elem.description}
+                +e('more-btn')
+                  span ...
+
+      +v3-swiper-controls({e: '&', m: 'theme-white'}, {
+        buttons: true,
+        pagination: 'true'
+      })
