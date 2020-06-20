@@ -5,7 +5,7 @@ mixin v3-standards(bem)
     .swiper-container
       .swiper-wrapper
         for elem in standards
-          .swiper-slide
+          .swiper-slide(class="swiper-slide_bg-" + elem.theme)
             +e('video')
               +e('video-wrapper')
                 video(id="my-video" class="video-js" controls preload="auto"

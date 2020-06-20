@@ -9,6 +9,12 @@
   text-transform: uppercase;
   margin-bottom: 21px;
 
+  @include mobile() {
+    font-size: 10px;
+    line-height: 28px;
+    margin-bottom: 10px;
+  }
+
   &#{$self}_color-white {
     color: $white;
   }

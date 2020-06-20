@@ -1,9 +1,16 @@
 .section {
   $self: &;
 
+  @include mobile() {
+  }
+
   &#v3-mission {
     padding-top: 174px;
     padding-bottom: 278px;
+
+    @include mobile() {
+      padding: 60px 10px;
+    }
   }
 
   &#v3-standards {}

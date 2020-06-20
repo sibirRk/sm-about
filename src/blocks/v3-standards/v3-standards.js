@@ -30,6 +30,10 @@ export default function () {
     on: {
       slideChange() {
         currentSlideNum.innerText = this.activeIndex + 1;
+
+        parent.querySelectorAll('video').forEach(video => {
+          video.pause();
+        })
       }
     }
   })
@@ -41,5 +45,9 @@ export default function () {
     playBtn.addEventListener('click', () => {
       video.play();
     })
+  })
+
+  window.addEventListener('resize', () => {
+    slider.init();
   })
 }
