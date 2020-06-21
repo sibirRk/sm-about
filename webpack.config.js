@@ -99,7 +99,8 @@ module.exports = {
                 // JSON data here, see example below
                 // menu: require('./src/data/menu.json'),
                 linkslist: links,
-                standards: require('./src/data/standards.json')
+                standards: require('./src/data/standards.json'),
+                team: require('./src/data/team.json')
               },
               pretty: true
             }

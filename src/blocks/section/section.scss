@@ -13,5 +13,15 @@
     }
   }
 
-  &#v3-standards {}
+  &#v3-standards {
+    margin-bottom: 167px;
+
+    @include to-md() {
+      margin-bottom: 30px;
+    }
+
+    @include to-sm() {
+      margin-bottom: 13px;
+    }
+  }
 }

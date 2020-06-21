@@ -1,0 +1,30 @@
+mixin v3-team(bem)
+  +b('v3-team', bem)&attributes(attributes)
+    +e('back')
+      +e('photo-wrapper')
+        .swiper-container
+          .swiper-wrapper
+            for elem in team
+              .swiper-slide
+                +e('photo')(style=`background-image: url(${elem.img ? elem.img : '/images/team/big-img.jpg'})`)
+                  +e('photo-info')
+                    +e('photo-name')= elem.name
+                    +e('photo-position')= elem.position
+      .container
+        +e('thumbnails-wrapper')
+          +e('thumbnails').swiper-container
+              .swiper-wrapper
+                for elem in team
+                  .swiper-slide(style=`background-image: url(${elem.img ? elem.img : '/images/team/thumb-1.jpg'})`)
+
+    .container
+      +e('info')
+        +e('info-start')
+          +v3-pretitle({e: '&'}) Руководство
+          +v3-title({e: '&'}) КОМАНДА СМ.СИТИ
+          +v3-description({e: '&'}) Мы постоянно стремимся к улучшению своей эффективности. На сегодняшний день в совете директоров компании сложилась команда профессионалов, чьи знания и умения оптимально соответствуют поставленным задачам.
+        +e('info-end')
+          +v3-swiper-controls({e: '&'}, {
+            buttons: true
+          })
+

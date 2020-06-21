@@ -1,0 +1,161 @@
+.v3-team {
+  $self: &;
+  position: relative;
+
+  #{$self}__back {
+    position: absolute;
+    top: 0;
+    left: 50vw;
+    width: 50vw;
+
+    @include to-md() {
+      position: relative;
+      left: 0;
+      width: 100%;
+      padding: 0 10px;
+      margin-bottom: 54px;
+    }
+  }
+
+  #{$self}__photo {
+    position: relative;
+    margin-bottom: 30px;
+    height: 548px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 1;
+
+
+
+    @include to-md() {
+      height: 420px;
+      margin-bottom: 30px;
+    }
+
+    @include to-sm() {
+      height: 200px;
+      margin-bottom: 13px;
+    }
+
+    &.js_transition {
+      transition: opacity .25s;
+      opacity: 0.9;
+    }
+
+    &-info {
+      position: absolute;
+      left: 45px;
+      bottom: 40px;
+      font-size: 20px;
+      line-height: 1.33;
+      color: $white;
+      width: 230px;
+
+      @include to-md() {
+        display: none;
+      }
+    }
+
+    &-name {
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    &-position {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+  }
+
+  #{$self}__thumbnails-wrapper {
+    width: calc(100% / 12 * 6);
+    margin-left: -10px;
+
+    @include to-md() {
+      width: 100%;
+    }
+  }
+
+  #{$self}__thumbnails {
+    .swiper-slide {
+      height: 62px;
+      background-size: contain;
+      background-position: left center;
+      background-repeat: no-repeat;
+      opacity: 0.6;
+      cursor: pointer;
+
+      &.swiper-slide-thumb-active {
+        opacity: 1;
+      }
+    }
+
+      #{$self}__thumb {
+      }
+  }
+
+  #{$self}__thumb {
+    cursor: pointer;
+    opacity: 0.6;
+
+    &.js_active {
+      img {
+        opacity: 1;
+      }
+    }
+
+    img {
+      object-fit: cover;
+      object-position: center;
+      max-width: 100%;
+      max-height: 100%;
+      opacity: 0.6;
+    }
+  }
+
+  #{$self}__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+
+    @include to-md() {
+      width: 100%;
+    }
+
+    &-start {
+      width: calc(100% / 6 * 5);
+
+      @include to-md() {
+        width: 100%;
+      }
+    }
+  }
+
+  #{$self}__v3 {
+    &-pretitle {
+      @include to-md() {
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.3em;
+      }
+    }
+
+    &-title {
+      margin-bottom: 30px;
+
+      @include to-md() {
+        width: 90%;
+        margin-bottom: 25px;
+      }
+    }
+
+    &-description {
+      @include to-md() {
+        margin-bottom: 30px;
+      }
+    }
+  }
+}

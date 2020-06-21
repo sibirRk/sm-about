@@ -3,6 +3,7 @@ import Swiper from "swiper";
 
 export default function () {
   const parent = document.querySelector('.v3-standards');
+  const section = parent.closest('section');
   const moreBtns = parent.querySelectorAll('.v3-standards__more-btn');
   const controls = parent.querySelector('.v3-swiper-controls');
   const prevBtn = controls.querySelector('.v3-swiper-controls__btn-wrapper.prev');
@@ -38,6 +39,7 @@ export default function () {
         const currentSlide = this.slides[this.realIndex];
         const color = currentSlide.dataset.color;
         infoBlock.style.background = color;
+        section.style.height = backBlock.offsetHeight + 'px';
 
         if (window.innerWidth < 768) {
           const slideHeight = this.slides[this.realIndex].offsetHeight;
