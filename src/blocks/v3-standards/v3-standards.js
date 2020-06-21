@@ -1,5 +1,5 @@
 import Swiper from "swiper";
-import videojs from 'video.js';
+// import videojs from 'video.js';
 
 export default function () {
   const parent = document.querySelector('.v3-standards');
@@ -10,9 +10,11 @@ export default function () {
   const pagination = parent.querySelector('.v3-swiper-controls__pagination');
   const currentSlideNum = pagination.querySelector('.current');
   const videoWrappers = parent.querySelectorAll('.v3-standards__video-wrapper');
+  const infoBlock = parent.querySelector('.v3-standards__info');
+  const backBlock = parent.querySelector('.v3-standards__back');
 
   moreBtns.forEach(btn => {
-    const parent = btn.closest('.v3-standards__info')
+    const parent = btn.closest('.v3-standards__info-wrapper');
     const description = parent.querySelector('.v3-standards__v3-description');
 
     btn.addEventListener('click', () => {
@@ -27,9 +29,34 @@ export default function () {
       nextEl: nextBtn,
       prevEl: prevBtn
     },
+    effect: 'fade',
+    fadeEffect: {
+      crossFade: true
+    },
     on: {
+      init() {
+        const currentSlide = this.slides[this.realIndex];
+        const color = currentSlide.dataset.color;
+        infoBlock.style.background = color;
+
+        if (window.innerWidth < 768) {
+          const slideHeight = this.slides[this.realIndex].offsetHeight;
+          backBlock.style.background = color;
+          // infoBlock.style.minHeight = slideHeight - 100 + 'px';
+        }
+      },
       slideChange() {
+        const currentSlide = this.slides[this.realIndex];
+        const color = currentSlide.dataset.color;
         currentSlideNum.innerText = this.activeIndex + 1;
+        infoBlock.style.background = color;
+
+        if (window.innerWidth < 768) {
+          backBlock.style.background = color;
+          const infoWrapperHeight = currentSlide.querySelector('.v3-standards__info-wrapper').offsetHeight;
+          const slideHeight = this.slides[this.realIndex].offsetHeight;
+          // infoBlock.style.minHeight = infoWrapperHeight + 237 + 'px';
+        }
 
         parent.querySelectorAll('video').forEach(video => {
           video.pause();

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="07484dd0-f4eb-4e14-8bde-7afa334ac3e8" name="ftp" url="http://degtrs.ru">
+        <fileTransfer rootFolder="/web/sm-about.degtrs.ru/public_html" host="degtrs.ru" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

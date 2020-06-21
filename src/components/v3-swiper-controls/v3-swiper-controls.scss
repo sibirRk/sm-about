@@ -3,6 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  user-select: none;
 
   &#{$self}_theme {
     &-white {
