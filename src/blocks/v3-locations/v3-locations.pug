@@ -1,0 +1,33 @@
+mixin v3-locations(bem)
+  +b('v3-locations', bem)&attributes(attributes)
+    +e('back')
+      +e('photo-wrapper')
+        .swiper-container
+          .swiper-wrapper
+            for elem in locations
+              .swiper-slide(data-description= elem.description)
+                +e('photo')(style=`background-image: url(${elem.img ? elem.img : '/images/locations/location-1.jpg'})`)
+      .container
+
+    .container
+      +e('info')
+        +e('info-start')
+          .v3-swiper-controls.v3-locations__v3-swiper-controls
+            .v3-swiper-controls__pagination
+              <span class="current">1</span>/<span class="total">
+              | !{locations.length}
+              |</span>
+          +v3-description({e: '&', m: 'color-white'}) !{locations[0].description}
+
+        +e('info-end')
+          +v3-swiper-controls({e: '&', m: 'theme-white'}, {
+            buttons: true
+          })
+          +v3-description({e: '&', m: 'color-white'}).mobile !{locations[0].description}
+          +e('thumbnails-wrapper')
+            +e('thumbnails').swiper-container
+              .swiper-wrapper
+                for elem in locations
+                  .swiper-slide(style=`background-image: url(${elem.img ? elem.img : '/images/locations/thumb-1.jpg'})`)
+
+

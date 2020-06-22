@@ -100,7 +100,9 @@ module.exports = {
                 // menu: require('./src/data/menu.json'),
                 linkslist: links,
                 standards: require('./src/data/standards.json'),
-                team: require('./src/data/team.json')
+                team: require('./src/data/team.json'),
+                locations: require('./src/data/locations.json'),
+                projects: require('./src/data/projects.json')
               },
               pretty: true
             }

@@ -24,4 +24,16 @@
       margin-bottom: 13px;
     }
   }
+
+  &#v3-team {
+    margin-bottom: 230px;
+
+    @include to-md() {
+      margin-bottom: 140px;
+    }
+  }
+
+  &#v3-locations {
+    background-color: $bluewood;
+  }
 }

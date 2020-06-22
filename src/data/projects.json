@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Южный берег",
+    "amount": 4033,
+    "img": "/images/projects/project-1.jpg",
+    "mod": "wide"
+  },
+  {
+    "name": "Образцово",
+    "amount": 2166,
+    "img": "/images/projects/project-2.jpg"
+  },
+  {
+    "name": "Бограда 109",
+    "amount": 312,
+    "img": "/images/projects/project-3.jpg"
+  },
+  {
+    "name": "Александровский",
+    "amount": 554,
+    "img": "/images/projects/project-4.jpg"
+  },
+  {
+    "name": "Академгородок",
+    "amount": 948,
+    "img": "/images/projects/project-5.jpg"
+  },
+  {
+    "name": "Светлогорский",
+    "amount": 554,
+    "img": "/images/projects/project-6.jpg"
+  },
+  {
+    "name": "Взлетная 7",
+    "amount": 360,
+    "img": "/images/projects/project-7.jpg"
+  }
+]

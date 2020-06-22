@@ -1,0 +1,8 @@
+mixin v3-project-card(bem, data)
+  +b('v3-project-card', bem, 'a')(href="#" style=`background-image: url(${data.img})`)&attributes(attributes)
+    +e('start')
+      +e('title')= data.name
+      +e('about') О проекте →
+    +e('end')
+      +e('flats-title') Квартир
+      +e('amount')= data.amount

@@ -1,0 +1,17 @@
+include ../../components/v3-project-card/v3-project-card
+
+mixin v3-projects(bem)
+  +b('v3-projects', bem)&attributes(attributes)
+    .container
+      +e('head').row
+        .col-xs-12.col-md-6.no-float
+          +v3-pretitle({m: 'color-white'}) Проекты
+          +v3-title({e: '&', m: 'color-white'}) Во всех районах города
+        +e('description-col').col-xs-12.col-md-6.no-float
+          +v3-description({e: '&'}) Мы меняем Красноярск. Сегодня мы реализуем несколько строительных проектов разного формата - от Сити-кварталов до жилых районов - во всех частях города. И все они соответствуют высоким стандартам СМ.СИТИ.
+
+      +e('cards-wrapper')
+        for project in projects
+          +v3-project-card({m: project.mod ? project.mod : false}, project)
+          
+      +e('cards-wrapper')

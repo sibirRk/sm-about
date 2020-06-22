@@ -11,6 +11,8 @@ include ./blocks/v3-top-slider/v3-top-slider
 include ./blocks/v3-mission/v3-mission
 include ./blocks/v3-standards/v3-standards
 include ./blocks/v3-team/v3-team
+include ./blocks/v3-locations/v3-locations
+include ./blocks/v3-projects/v3-projects
 
 include ./components/v3-pretitle/v3-pretitle
 include ./components/v3-title/v3-title
@@ -39,6 +41,10 @@ html
 
     +section#v3-team
       +v3-team
+
+    +section#v3-locations
+      +v3-locations
+      +v3-projects
 
     for elem in [...Array(30).keys()]
       br

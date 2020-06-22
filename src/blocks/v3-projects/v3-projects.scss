@@ -1,0 +1,50 @@
+.v3-projects {
+  $self: &;
+  padding-bottom: 75px;
+
+  @include to-md() {
+    padding: 0 10px 60px;
+  }
+
+  #{$self}__head {
+    margin-bottom: 83px;
+
+    @include to-md() {
+      margin-bottom: 60px;
+    }
+  }
+
+  #{$self}__description-col {
+    height: 100%;
+    vertical-align: bottom;
+  }
+
+  #{$self}__cards-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    width: calc(100% + 20px);
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+
+  #{$self}__v3 {
+    &-title {
+      width: calc(100% /6 * 5);
+
+      @include to-md() {
+        width: 100%;
+      }
+    }
+
+    &-description {
+      color: #9F9F9F;
+    }
+  }
+
+  .no-float {
+    @include from-md() {
+      display: table-cell;
+      float: none;
+    }
+  }
+}
