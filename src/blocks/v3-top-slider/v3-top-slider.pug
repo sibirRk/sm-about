@@ -1,2 +1,67 @@
 mixin v3-top-slider(bem)
   +b('v3-top-slider', bem)&attributes(attributes)
+    +e('img-wrapper')
+      img(src="/images/top-slider/bg.jpg")
+
+      +e('point', {m: 'num-1'})
+        +e('point-graph')
+          +e('point-circle')
+          +e('point-text') Образцово
+        +e('point-info')
+          +e('point-about', {}, 'a')(href="#") О проекте →
+          +e('point-flats-title') Квартир
+          +e('point-flats-amount') 2166
+
+      +e('point', {m: 'num-2'})
+        +e('point-graph')
+          +e('point-circle')
+          +e('point-text') Южный берег
+        +e('point-info')
+          +e('point-about', {}, 'a')(href="#") О проекте →
+          +e('point-flats-title') Квартир
+          +e('point-flats-amount') 4033
+
+      +e('point', {m: 'num-3'})
+        +e('point-graph')
+          +e('point-circle')
+          +e('point-text') Академгородок
+        +e('point-info')
+          +e('point-about', {}, 'a')(href="#") О проекте →
+          +e('point-flats-title') Квартир
+          +e('point-flats-amount') 948
+
+      +e('point', {m: 'num-4'})
+        +e('point-graph')
+          +e('point-circle')
+          +e('point-text') Бограда 109
+        +e('point-info')
+          +e('point-about', {}, 'a')(href="#") О проекте →
+          +e('point-flats-title') Квартир
+          +e('point-flats-amount') 312
+
+      +e('point', {m: 'num-5.right'})
+        +e('point-graph')
+          +e('point-text') Взлетная 7
+          +e('point-circle')
+        +e('point-info')
+          +e('point-about', {}, 'a')(href="#") О проекте →
+          +e('point-flats-title') Квартир
+          +e('point-flats-amount') 360
+
+      +e('point', {m: 'num-6.right'})
+        +e('point-graph')
+          +e('point-text') Александровский
+          +e('point-circle')
+        +e('point-info')
+          +e('point-about', {}, 'a')(href="#") О проекте →
+          +e('point-flats-title') Квартир
+          +e('point-flats-amount') 554
+
+      +e('point', {m: 'num-7.right'})
+        +e('point-graph')
+          +e('point-text') Светлогорский
+          +e('point-circle')
+        +e('point-info')
+          +e('point-about', {}, 'a')(href="#") О проекте →
+          +e('point-flats-title') Квартир
+          +e('point-flats-amount') 554

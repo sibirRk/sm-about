@@ -3,6 +3,235 @@
 
   width: 100vw;
   height: 1000px;
-  background-image: url("/images/top-slider/bg.jpg");
-  background-size: cover;
+  //background-image: url("/images/top-slider/bg.jpg");
+  //background-size: cover;
+  overflow: hidden;
+
+  #{$self}__img-wrapper {
+    position: relative;
+    width: fit-content;
+
+    img {
+      height: 100%;
+      width: auto;
+      touch-action: none;
+
+      @include to-md() {
+      }
+    }
+  }
+
+  @mixin calcPosition($left, $top, $direction:left, $line-size: 100px) {
+    @if $left >= 0 {
+      left: #{$left}px;
+    } @else {
+      right: #{-$left}px;
+    }
+
+    top: #{$top}px;
+
+    &.js_active {
+      @if $left >= 0 {
+        left: #{$left - 10}px;
+      } @else {
+        right: #{-$left - 10}px;
+      }
+      top: #{$top - 10}px;
+
+      #{$self}__point-circle {
+        &:before {
+          @if $direction == bottom {
+            top: calc(50% + 12px);
+          }
+        }
+      }
+    }
+
+    #{$self}__point-circle {
+      &:before {
+        @if $direction == left {
+          top: 50%;
+          right: 100%;
+          width: $line-size;
+          height: 1px;
+        }
+
+        @if $direction == right {
+          top: 50%;
+          left: 100%;
+          width: $line-size;
+          height: 1px;
+        }
+
+        @if $direction == bottom {
+          top: 100%;
+          left: 50%;
+          width: 1px;
+          height: $line-size;
+        }
+      }
+    }
+  }
+
+  #{$self}__point {
+    position: absolute;
+    //display: flex;
+    //align-items: center;
+    cursor: pointer;
+
+    &.js_active {
+      #{$self}__point-circle {
+        background-color: $white;
+        width: 44px;
+        height: 44px;
+
+        &:after {
+          width: 28px;
+          height: 28px;
+          background-color: #E94F31;
+        }
+      }
+
+      #{$self}__point-info {
+        display: block;
+      }
+    }
+
+    &_right {
+      #{$self}__point-info {
+        padding-left: 0;
+      }
+    }
+
+    &_num {
+      &-1 {
+        @include calcPosition(50, 350);
+      }
+      &-2 {
+        @include calcPosition(503, 202, bottom, 444px);
+      }
+      &-3 {
+        @include calcPosition(1378, 212, bottom, 192px);
+        transition: top .25s;
+
+        #{$self}__point-circle:before {
+          transition: height .25s;
+        }
+
+        &.js_active {
+          top: 60px;
+
+          #{$self}__point-circle {
+            &:before {
+              height: 315px;
+            }
+          }
+        }
+      }
+      &-4 {
+        @include calcPosition(1600, 304, bottom, 153px);
+        transition: top .25s;
+        #{$self}__point-circle:before {
+          transition: height .25s;
+        }
+
+        &.js_active {
+          top: 160px;
+          #{$self}__point-circle:before {
+            height: 350px;
+          }
+        }
+      }
+      &-5 {
+        @include calcPosition(-254, 212, right, 100vw);
+        transition: left .25s, right .25s;
+        &.js_active {
+          right: 610px;
+        }
+      }
+      &-6 {
+        @include calcPosition(-200, 287, right, 100vw);
+        transition: left .25s, right .25s;
+        &.js_active {
+          right: 475px;
+        }
+      }
+      &-7 {
+        @include calcPosition(-134, 356, right, 100vw);
+        transition: left .25s, right .25s;
+        &.js_active {
+          right: 467px;
+        }
+      }
+    }
+
+    &-circle {
+      position: relative;
+      width: 24px;
+      height: 24px;
+      background-color: rgba($white, 0.4);
+      border-radius: 50%;
+      margin-right: 15px;
+      margin-left: 15px;
+      z-index: 1;
+
+      &:after {
+        width: 16px;
+        height: 16px;
+        content: '';
+        position: relative;
+        background-color: $white;
+        display: block;
+        border-radius: 50%;
+        left: 50%;
+        top: 50%;
+        z-index: 2;
+        transform: translate3d(-50%,-50%,0);
+      }
+
+      &:before {
+        content: '';
+        position: absolute;
+        background-color: $white;
+      }
+    }
+
+    &-text {
+      font-size: 20px;
+      line-height: 24px;
+      font-weight: bold;
+      color: $white;
+    }
+
+    &-info {
+      display: none;
+      padding-left: 75px;
+      color: $white;
+    }
+
+    &-about {
+      display: block;
+      font-size: 14px;
+      line-height: 17px;
+      color: $white;
+      margin-bottom: 13px;
+    }
+
+    &-flats-title {
+      font-size: 20px;
+      line-height: 24px;
+      font-weight: bold;
+    }
+
+    &-flats-amount {
+      font-size: 150px;
+      line-height: 1;
+      font-weight: bold;
+    }
+
+    &-graph {
+      display: flex;
+      align-items: center;
+    }
+  }
 }

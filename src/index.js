@@ -5,8 +5,13 @@ import headerMenu from './blocks/v3-header-menu/v3-header-menu';
 import standards from './blocks/v3-standards/v3-standards';
 import team from './blocks/v3-team/v3-team';
 import locations from './blocks/v3-locations/v3-locations';
+import topSlider from './blocks/v3-top-slider/v3-top-slider';
 
 new common();
+
+if (document.querySelector('.v3-top-slider')) {
+  new topSlider();
+}
 
 if (document.querySelector('.v3-header-menu')) {
   new headerMenu();
