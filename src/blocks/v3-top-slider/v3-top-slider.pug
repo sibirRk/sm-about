@@ -1,5 +1,5 @@
 mixin v3-top-slider(bem)
-  +b('v3-top-slider', bem)&attributes(attributes)
+  +b('v3-top-slider', bem)&attributes(attributes).js_points-visible2
     +e('img-wrapper')
       img(src="/images/top-slider/bg.jpg")
 
@@ -65,3 +65,16 @@ mixin v3-top-slider(bem)
           +e('point-about', {}, 'a')(href="#") О проекте →
           +e('point-flats-title') Квартир
           +e('point-flats-amount') 554
+
+    +e('bottom-btn')
+      img(src="/images/top-slider/bottom-arrow.svg")
+
+    +e('onoff-btn')
+      img.on(src="/images/top-slider/show-btn.svg")
+      img.off(src="/images/top-slider/close.svg")
+      +e('onoff-btn-title').on Смотреть
+      +e('onoff-btn-title').off Закрыть
+
+    +e('compass')
+      img(src="/images/top-slider/compass.svg")
+

@@ -6,9 +6,12 @@ export default function () {
   const imgWidth = img.offsetWidth;
   const image = interact(img);
   const points = parent.querySelectorAll('.v3-top-slider__point');
+  const showPointsBtn = parent.querySelector('.v3-top-slider__onoff-btn');
+  const bottomBtn = parent.querySelector('.v3-top-slider__bottom-btn');
+  const compass = parent.querySelector('.v3-top-slider__compass img');
 
   let position = 0;
-  console.log(imgWidth);
+  let pointsVisible = false;
 
   image.draggable({
     inertia: true,
@@ -20,8 +23,31 @@ export default function () {
         }
 
         event.target.style.transform = `translate3d(${position}px, 0, 0)`;
+
+        let deg = (position / window.innerWidth) * 100 / 2;
+        compass.style.transform = `rotate(${-deg}deg)`
       }
     }
+  })
+
+  showPointsBtn.addEventListener('click', () => {
+    if (pointsVisible) {
+      showPointsBtn.classList.remove('js_on');
+      parent.classList.remove('js_points-visible');
+      pointsVisible = !pointsVisible;
+    } else {
+      showPointsBtn.classList.add('js_on');
+      parent.classList.add('js_points-visible');
+      pointsVisible = !pointsVisible;
+    }
+  })
+
+  bottomBtn.addEventListener('click', () => {
+    window.scrollTo({
+      behavior: 'smooth',
+      left: 0,
+      top: parent.offsetHeight
+    })
   })
 
   points.forEach(point => {

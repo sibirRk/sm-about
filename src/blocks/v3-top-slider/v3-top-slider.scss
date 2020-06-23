@@ -1,11 +1,22 @@
 .v3-top-slider {
   $self: &;
 
+  position: relative;
   width: 100vw;
   height: 1000px;
   //background-image: url("/images/top-slider/bg.jpg");
   //background-size: cover;
   overflow: hidden;
+
+  &.js_points-visible {
+    #{$self}__point {
+      display: block;
+    }
+
+    #{$self}__compass {
+      display: block;
+    }
+  }
 
   #{$self}__img-wrapper {
     position: relative;
@@ -73,8 +84,98 @@
     }
   }
 
+  #{$self}__bottom-btn {
+    position: absolute;
+    left: 38px;
+    bottom: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border: 1px solid $white;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  #{$self}__onoff-btn {
+    position: absolute;
+    bottom: 48px;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translate3d(-50%,0,0);
+    cursor: pointer;
+    z-index: 1;
+    user-select: none;
+
+    &.js_on {
+      img {
+        &.on {
+          display: none;
+        }
+        &.off {
+          display: block;
+        }
+      }
+      #{$self}__onoff-btn-title {
+        &.on {
+          display: none;
+        }
+
+        &.off {
+          display: block;
+        }
+      }
+    }
+
+    img {
+      &.on {
+        width: 91px;
+        height: 91px;
+        margin-bottom: 13px;
+      }
+
+      &.off {
+        width: 52px;
+        height: 52px;
+        margin-bottom: 23px;
+        display: none;
+      }
+
+    }
+
+    &-title {
+      font-size: 22px;
+      line-height: 1;
+      text-align: center;
+      color: $white;
+
+      &.off {
+        display: none;
+      }
+    }
+  }
+
+  #{$self}__compass {
+    position: absolute;
+    bottom: -36px;
+    left: 50%;
+    transform: translate3d(-50%,0,0);
+    z-index: 0;
+    user-select: none;
+    display: none;
+
+    img {
+      width: 331px;
+      height: 331px;
+    }
+  }
+
   #{$self}__point {
     position: absolute;
+    display: none;
     //display: flex;
     //align-items: center;
     cursor: pointer;
