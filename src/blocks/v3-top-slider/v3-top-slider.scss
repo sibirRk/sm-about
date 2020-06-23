@@ -8,7 +8,15 @@
   //background-size: cover;
   overflow: hidden;
 
+  @include to-md() {
+    height: 375px;
+  }
+
   &.js_points-visible {
+    #{$self}__title-wrapper {
+      display: none;
+    }
+
     #{$self}__point {
       display: block;
     }
@@ -18,9 +26,40 @@
     }
   }
 
+  #{$self}__title-wrapper {
+    position: absolute;
+    top: 208px;
+    left: 0;
+    width: 100%;
+    height: fit-content;
+
+    @include to-md() {
+      top: 83px;
+    }
+  }
+
+  #{$self}__title {
+    text-align: center;
+    font-size: 60px;
+    line-height: 77px;
+    font-weight: bold;
+    color: $white;
+    text-transform: uppercase;
+
+    @include to-md() {
+      font-size: 32px;
+      line-height: 1.33;
+      text-align: left;
+    }
+  }
+
   #{$self}__img-wrapper {
     position: relative;
     width: fit-content;
+
+    @include to-md() {
+      height: 100%;
+    }
 
     img {
       height: 100%;
@@ -96,6 +135,10 @@
     border: 1px solid $white;
     border-radius: 50%;
     cursor: pointer;
+
+    @include to-md() {
+      display: none;
+    }
   }
 
   #{$self}__onoff-btn {
@@ -109,6 +152,10 @@
     cursor: pointer;
     z-index: 1;
     user-select: none;
+
+    @include to-md() {
+      display: none;
+    }
 
     &.js_on {
       img {
