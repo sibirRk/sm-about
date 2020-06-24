@@ -208,16 +208,31 @@
 
   #{$self}__compass {
     position: absolute;
-    bottom: -36px;
+    bottom: -87px;
     left: 50%;
-    transform: translate3d(-50%,0,0);
+    transform:
+      translate3d(-50%,0,0)
+      rotate(90deg);
     z-index: 0;
     user-select: none;
     display: none;
 
+    &:after {
+      content: '';
+      position: absolute;
+      display: block;
+      bottom: 0;
+      right: 0;
+      height: 414px;
+      width: 130px;
+      //background-color: rgba($black, .5);
+      background: linear-gradient(90deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,1) 100%);
+      filter: blur(20px);
+    }
+
     img {
-      width: 331px;
-      height: 331px;
+      width: 414px;
+      height: 414px;
     }
   }
 

@@ -4,13 +4,23 @@ mixin v3-standards(bem)
   +b('v3-standards', bem)&attributes(attributes)
     +e('back')
       +e('video')
+        video(poster='/video/poster.jpg')
+          source(src='/video/video.mp4' type="video/mp4")
+          source(src='/video/video.ogv' type="video/ogg")
+          source(src='/video/video.webm' type="video/webm")
+        +e('play')
+          +icon({e: '&:play-btn'}, 'play-btn')
+
+
       +e('info')
 
     .container
       .swiper-container
         .swiper-wrapper
-          for elem in standards
-            .swiper-slide(data-color=elem.theme)
+          for elem, index in standards
+            - var video = index % 2 === 0 ? '/video/video.mp4,/video/video.ogv,/video/video.webm' : '/video/video2.mp4,/video/video2.ogv,/video/video2.webm';
+            -var poster = index % 2 === 0 ? '/video/poster.jpg' : '/video/poster2.jpg';
+            .swiper-slide(data-color=elem.theme data-video=video data-poster=poster)
                 +e('info-wrapper').col-md-offset-7
                   +v3-pretitle({e: '&', m: 'color-white'}) Стандарты СМ.Сити
                   +v3-title({e:'&', m: 'color-white'})= elem.title

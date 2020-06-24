@@ -12,8 +12,10 @@ export default function () {
 
   let position = 0;
   let pointsVisible = false;
+  let pointsFlag = false;
 
-  if (window.innerWidth > 767) {
+  showPointsBtn.addEventListener('click', () => {
+    if (window.innerWidth > 767 && !pointsFlag) {
     image.draggable({
       inertia: true,
       autoScroll: true,
@@ -32,7 +34,6 @@ export default function () {
     })
   }
 
-  showPointsBtn.addEventListener('click', () => {
     if (pointsVisible) {
       showPointsBtn.classList.remove('js_on');
       parent.classList.remove('js_points-visible');

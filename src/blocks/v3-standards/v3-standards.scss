@@ -22,6 +22,7 @@
   }
 
   #{$self}__video {
+    position: relative;
     width: 50%;
     height: 638px;
     background-color: red;
@@ -44,6 +45,13 @@
       width: calc(100% - 20px);
     }
 
+    video {
+      width: 102%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
     &-btn {
       position: absolute;
       bottom: 35px;
@@ -61,6 +69,23 @@
         top: 50%;
         transform: translate3d(-50%,-50%,0);
       }
+    }
+  }
+
+  #{$self}__play {
+    position: absolute;
+    bottom: 42px;
+    right: 46px;
+    color: $white;
+    cursor: pointer;
+
+    &.js_hidden {
+      display: none;
+    }
+
+    &-btn {
+      width: 98px;
+      height: 98px;
     }
   }
 

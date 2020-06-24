@@ -10,9 +10,11 @@ export default function () {
   const nextBtn = controls.querySelector('.v3-swiper-controls__btn-wrapper.next');
   const pagination = parent.querySelector('.v3-swiper-controls__pagination');
   const currentSlideNum = pagination.querySelector('.current');
-  const videoWrappers = parent.querySelectorAll('.v3-standards__video-wrapper');
+  const videoWrappers = parent.querySelector('.v3-standards__video');
   const infoBlock = parent.querySelector('.v3-standards__info');
   const backBlock = parent.querySelector('.v3-standards__back');
+  const playBtn = parent.querySelector('.v3-standards__play');
+  const video = parent.querySelector('video')
 
   moreBtns.forEach(btn => {
     const parent = btn.closest('.v3-standards__info-wrapper');
@@ -23,7 +25,6 @@ export default function () {
       btn.style.display = 'none';
     })
   })
-
 
   const slider = new Swiper('.v3-standards .swiper-container', {
     navigation: {
@@ -50,8 +51,27 @@ export default function () {
       slideChange() {
         const currentSlide = this.slides[this.realIndex];
         const color = currentSlide.dataset.color;
+        const videos = currentSlide.dataset.video.split(',');
+
         currentSlideNum.innerText = this.activeIndex + 1;
         infoBlock.style.background = color;
+
+        video.querySelectorAll('source').forEach(src => {
+          video.removeChild(src);
+        })
+
+        videos.forEach(el => {
+          const arr = el.split('.');
+          const format = arr[arr.length - 1];
+          let source = document.createElement('source');
+          source.src = el;
+          source.type = 'video/' + (format === 'ogv' ? 'ogg' : format);
+          video.appendChild(source);
+        })
+
+        video.poster = currentSlide.dataset.poster;
+        video.load();
+        playBtn.classList.remove('js_hidden');
 
         if (window.innerWidth < 768) {
           backBlock.style.background = color;
@@ -60,20 +80,18 @@ export default function () {
           // infoBlock.style.minHeight = infoWrapperHeight + 237 + 'px';
         }
 
-        parent.querySelectorAll('video').forEach(video => {
-          video.pause();
-        })
+        video.pause();
       }
     }
   })
 
-  videoWrappers.forEach(wrapper => {
-    const video = wrapper.querySelector('video')
-    const playBtn = wrapper.querySelector('.v3-standards__video-btn');
-
-    playBtn.addEventListener('click', () => {
+  playBtn.addEventListener('click', () => {
+    if (video.paused) {
       video.play();
-    })
+      playBtn.classList.add('js_hidden');
+    } else {
+      video.pause();
+    }
   })
 
   window.addEventListener('resize', () => {
