@@ -17,16 +17,16 @@ export default function () {
   showPointsBtn.addEventListener('click', () => {
     if (window.innerWidth > 767 && !pointsFlag) {
     image.draggable({
-      inertia: true,
-      autoScroll: true,
+      // inertia: true,
+      // autoScroll: true,
       listeners: {
         move (event) {
+          console.log(event);
           if ( (position + event.dx < 0) && (position + event.dx - window.innerWidth) > -imgWidth) {
             position += event.dx;
           }
 
           event.target.style.transform = `translate3d(${position}px, 0, 0)`;
-
           let deg = (position / window.innerWidth) * 100 / 2;
           compass.style.transform = `rotate(${-deg}deg)`
         }
