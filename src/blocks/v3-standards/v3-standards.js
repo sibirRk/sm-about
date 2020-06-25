@@ -16,6 +16,10 @@ export default function () {
   const playBtn = parent.querySelector('.v3-standards__play');
   const video = parent.querySelector('video')
 
+  // for fast load loader img
+  let img = document.createElement('img');
+  img.src = video.dataset.loader;
+
   moreBtns.forEach(btn => {
     const parent = btn.closest('.v3-standards__info-wrapper');
     const description = parent.querySelector('.v3-standards__v3-description');
@@ -60,19 +64,28 @@ export default function () {
           video.removeChild(src);
         })
 
-        video.poster = currentSlide.dataset.poster;
-        video.load();
-
         videos.forEach(el => {
           const arr = el.split('.');
           const format = arr[arr.length - 1];
           let source = document.createElement('source');
           source.src = el;
-          source.type = 'video/' + (format === 'ogv' ? 'ogg' : format);
+          // source.type = 'video/' + (format === 'ogv' ? 'ogg' : format);
           video.appendChild(source);
         })
+
+        video.poster = video.dataset.loader;
+        video.classList.add('loading');
+
+        let img = document.createElement('img');
+        img.src = currentSlide.dataset.poster;
+        img.onload = function() {
+          video.poster = img.src;
+          video.classList.remove('loading');
+        };
+
         video.load();
-        playBtn.classList.remove('js_hidden');
+
+        playBtn.classList.remove('plaing');
 
         if (window.innerWidth < 768) {
           backBlock.style.background = color;
@@ -86,12 +99,18 @@ export default function () {
     }
   })
 
+  video.onended = function() {
+    playBtn.classList.remove('plaing');
+  };
+
   playBtn.addEventListener('click', () => {
     if (video.paused) {
       video.play();
-      playBtn.classList.add('js_hidden');
+
+      playBtn.classList.add('plaing');
     } else {
       video.pause();
+      playBtn.classList.remove('plaing');
     }
   })
 
