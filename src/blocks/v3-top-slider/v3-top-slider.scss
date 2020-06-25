@@ -60,6 +60,7 @@
 
     @include to-md() {
       height: 100%;
+      touch-action: auto;
     }
 
     img {
@@ -68,6 +69,7 @@
       touch-action: none;
 
       @include to-md() {
+        touch-action: auto;
       }
     }
   }

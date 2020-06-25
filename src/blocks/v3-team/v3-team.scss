@@ -13,7 +13,7 @@
       left: 0;
       width: 100%;
       padding: 0 10px;
-      margin-bottom: 54px;
+      margin-bottom: 15px;
     }
   }
 
@@ -130,6 +130,14 @@
 
       @include to-md() {
         width: 100%;
+        order: 2;
+      }
+    }
+
+    &-end {
+      @include to-md() {
+        order: 1;
+        margin-bottom: 20px;
       }
     }
   }
@@ -154,7 +162,7 @@
 
     &-description {
       @include to-md() {
-        margin-bottom: 30px;
+        margin-bottom: 0;
       }
     }
   }

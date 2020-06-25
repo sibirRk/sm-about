@@ -185,6 +185,7 @@
 
         @include to-md() {
           display: block;
+          min-height: 250px;
         }
       }
     }

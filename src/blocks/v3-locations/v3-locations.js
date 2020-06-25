@@ -3,7 +3,7 @@ import Swiper from "swiper";
 export default function() {
   const parent = document.querySelector('.v3-locations');
   const section = parent.closest('section');
-  const description = parent.querySelector('.v3-locations__v3-description');
+  const description = parent.querySelectorAll('.v3-locations__v3-description');
   const currentSlideSpan = parent.querySelector('.v3-swiper-controls__pagination .current');
   const thumbsBlock = parent.querySelector('.v3-locations__thumbnails');
   const prevBtn = parent.querySelector('.v3-swiper-controls__btn-wrapper.prev');
@@ -43,7 +43,9 @@ export default function() {
       slideChange() {
         const currentSlide = this.slides[this.realIndex];
         currentSlideSpan.innerText = this.realIndex + 1;
-        description.innerHTML = currentSlide.dataset.description;
+        description.forEach(el => {
+          el.innerHTML = currentSlide.dataset.description;
+        })
       }
     }
   })

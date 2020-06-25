@@ -60,6 +60,9 @@ export default function () {
           video.removeChild(src);
         })
 
+        video.poster = currentSlide.dataset.poster;
+        video.load();
+
         videos.forEach(el => {
           const arr = el.split('.');
           const format = arr[arr.length - 1];
@@ -68,8 +71,6 @@ export default function () {
           source.type = 'video/' + (format === 'ogv' ? 'ogg' : format);
           video.appendChild(source);
         })
-
-        video.poster = currentSlide.dataset.poster;
         video.load();
         playBtn.classList.remove('js_hidden');
 
